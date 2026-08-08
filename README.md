@@ -1,495 +1,384 @@
 
 
-# EXP 5: COMPARATIVE ANALYSIS OF DIFFERENT TYPES OF PROMPTING PATTERNS AND EXPLAIN WITH VARIOUS TEST SCENARIOS
-
 # EXPERIMENT 5
 
-## COMPARATIVE ANALYSIS OF NAÏVE AND BASIC PROMPTING USING VARIOUS TEST SCENARIOS
+## COMPARATIVE ANALYSIS OF DIFFERENT TYPES OF PROMPTING PATTERNS AND EXPLANATION WITH VARIOUS TEST SCENARIOS
 
----
+### AIM
 
-## AIM
+To study, test, and compare different prompting patterns using various test scenarios and analyze their effect on the **quality, accuracy, relevance, consistency, and depth** of AI-generated responses.
 
-To compare the performance of **naïve and basic prompts** in ChatGPT across different test scenarios and to analyze the generated responses based on **quality, accuracy, relevance, and depth**.
-
----
-
-## AI TOOL REQUIRED
+### AI TOOLS REQUIRED
 
 * ChatGPT
+* Google Gemini
+* Any Generative AI Tool
 
 ---
 
 ## 1. INTRODUCTION
 
-Prompting is the process of providing instructions to an Artificial Intelligence model to obtain a desired response. The structure and clarity of a prompt can influence how effectively the AI understands the user's requirements.
+Prompting is the process of providing instructions to a Generative AI model to obtain a desired output. Different prompting patterns can influence how an AI model understands a task and generates its response.
 
-In this experiment, two different prompting approaches are tested:
+In this experiment, different prompting patterns are applied to multiple scenarios. The responses are compared to identify which prompting pattern is more effective for a particular type of task.
 
-* **Naïve Prompting** – short, broad, and less structured prompts.
-* **Basic Prompting** – clear, detailed, and structured prompts containing specific instructions and context.
+The following prompting patterns are considered:
 
-The same task is given to ChatGPT using both prompt types. The generated responses are then compared to understand how prompt structure affects the quality of the output.
+1. **Zero-Shot Prompting**
+2. **Few-Shot Prompting**
+3. **Role-Based Prompting**
+4. **Step-by-Step Prompting**
 
 ---
 
-## 2. DEFINITION OF THE TWO PROMPT TYPES
+## 2. TYPES OF PROMPTING PATTERNS
 
-### 2.1 Naïve Prompt
+### 2.1 Zero-Shot Prompting
 
-A naïve prompt is a simple and general instruction that provides limited context or specific requirements to the AI model.
+Zero-shot prompting asks the AI to perform a task without providing examples.
 
 **Example:**
 
-> Explain artificial intelligence.
+> Explain how an automatic street-light system works.
 
-This prompt allows ChatGPT to decide what information should be included and how the answer should be presented.
+---
 
-### 2.2 Basic Prompt
+### 2.2 Few-Shot Prompting
 
-A basic prompt is a clear, detailed, and structured instruction that provides context, requirements, constraints, and the expected format of the response.
+Few-shot prompting provides one or more examples before asking the AI to perform the required task.
 
 **Example:**
 
-> Explain artificial intelligence for a first-year engineering student. Define AI, list three common applications, and provide one simple real-world example. Present the answer using headings and bullet points.
-
-The basic prompt gives ChatGPT a clearer understanding of the expected response.
-
----
-
-## 3. COMPARISON OF PROMPT TYPES
-
-| Feature            | Naïve Prompt  | Basic Prompt      |
-| ------------------ | ------------- | ----------------- |
-| Structure          | Unstructured  | Structured        |
-| Context            | Limited       | Clearly provided  |
-| Instructions       | General       | Specific          |
-| Output Control     | Low           | High              |
-| Expected Detail    | Not specified | Clearly specified |
-| Response Relevance | Moderate      | High              |
+> Example:
+> Input: 20°C → Fan OFF
+> Input: 40°C → Fan ON
+>
+> Determine the output when the temperature is 35°C.
 
 ---
 
-## 4. PROMPT COMPARISON
+### 2.3 Role-Based Prompting
 
-```mermaid
-flowchart LR
-    A[Naïve Prompt] --> B[General Instructions]
-    B --> C[Generic Response]
+Role-based prompting assigns a specific professional or expert role to the AI.
 
-    D[Basic Prompt] --> E[Context + Instructions]
-    E --> F[Requirements + Constraints]
-    F --> G[Specific Response]
-```
+**Example:**
+
+> Act as an embedded systems engineer and explain how an automatic street-light controller can be designed using a microcontroller.
 
 ---
 
-## 5. PREPARATION OF TEST SCENARIOS
+### 2.4 Step-by-Step Prompting
 
-Eight different scenarios were selected to evaluate the performance of ChatGPT across creative, academic, technical, and practical tasks.
+Step-by-step prompting asks the AI to approach a problem through a sequence of logical stages.
 
-### Selected Scenarios
+**Example:**
 
-1. Creative story generation
-2. Factual explanation
-3. Concept summarization
-4. Study advice
-5. Python programming
-6. Project recommendation
-7. Professional email writing
-8. Engineering problem solving
-
-For every scenario, two prompts were prepared:
-
-* One naïve prompt
-* One basic prompt
-
-Both prompts target the **same task**, but the basic prompt contains more specific instructions.
+> Explain the design of an automatic street-light system step by step, including input, processing, decision-making, and output.
 
 ---
 
-# 6. SCENARIO 1 – CREATIVE STORY GENERATION
-
-### Naïve Prompt
-
-> Write a story about a robot.
-
-### Basic Prompt
-
-> Write a 250-word science-fiction story about a robot that helps students in a school during an unexpected power failure. Include a clear beginning, problem, solution, and positive ending.
-
-### Response Comparison
-
-| Parameter  | Naïve Prompt | Basic Prompt |
-| ---------- | ------------ | ------------ |
-| Quality    | Moderate     | High         |
-| Relevance  | General      | Very High    |
-| Creativity | Good         | Very Good    |
-| Depth      | Low          | High         |
-
-### Observation
-
-The naïve prompt produces a general story about a robot. The basic prompt generates a more focused story because it specifies the setting, character, situation, length, and required story structure.
-
----
-
-# 7. SCENARIO 2 – FACTUAL QUESTION
-
-### Naïve Prompt
-
-> What is cloud computing?
-
-### Basic Prompt
-
-> Explain cloud computing for an engineering student. Define cloud computing, explain IaaS, PaaS, and SaaS, and provide one practical example for each service model.
-
-### Response Comparison
-
-| Parameter    | Naïve Prompt | Basic Prompt |
-| ------------ | ------------ | ------------ |
-| Accuracy     | Good         | High         |
-| Detail       | Moderate     | High         |
-| Organization | Basic        | Excellent    |
-| Usefulness   | Moderate     | High         |
-
-### Observation
-
-The naïve prompt produces a general explanation. The basic prompt gives a more complete answer because it specifies the concepts that must be covered.
-
----
-
-# 8. SCENARIO 3 – CONCEPT SUMMARIZATION
-
-### Naïve Prompt
-
-> Summarize machine learning.
-
-### Basic Prompt
-
-> Summarize machine learning in approximately 150 words. Include its definition, three major types, common applications, and one limitation. Use simple language suitable for a college student.
-
-### Response Comparison
-
-| Parameter            | Naïve Prompt | Basic Prompt |
-| -------------------- | ------------ | ------------ |
-| Relevance            | Moderate     | High         |
-| Conciseness          | Moderate     | High         |
-| Information Coverage | Low          | High         |
-| Depth                | Moderate     | High         |
-
-### Observation
-
-The basic prompt provides better control over the length and content of the summary.
-
----
-
-# 9. SCENARIO 4 – STUDY ADVICE
-
-### Naïve Prompt
-
-> How can I study better?
-
-### Basic Prompt
-
-> Create a practical one-week study plan for a college student preparing for three technical subjects. Allocate two hours per day, include revision and practice sessions, and provide short breaks between study sessions.
-
-### Response Comparison
-
-| Parameter       | Naïve Prompt | Basic Prompt |
-| --------------- | ------------ | ------------ |
-| Practicality    | Moderate     | Very High    |
-| Personalization | Low          | High         |
-| Structure       | Low          | High         |
-| Usefulness      | Moderate     | Very High    |
-
-### Observation
-
-The naïve prompt generates general study suggestions, whereas the basic prompt produces a more actionable plan because specific time and scheduling requirements are provided.
-
----
-
-# 10. SCENARIO 5 – PYTHON PROGRAMMING
-
-### Naïve Prompt
-
-> Write Python code for a calculator.
-
-### Basic Prompt
-
-> Write a beginner-friendly Python calculator program that accepts two numbers and performs addition, subtraction, multiplication, and division. Use separate functions for each operation and display the result clearly.
-
-### Response Comparison
-
-| Parameter             | Naïve Prompt | Basic Prompt |
-| --------------------- | ------------ | ------------ |
-| Code Relevance        | Moderate     | High         |
-| Structure             | Moderate     | High         |
-| Explanation           | Low          | High         |
-| Beginner Friendliness | Moderate     | Very High    |
-
-### Observation
-
-The basic prompt provides clear programming requirements, resulting in an output that is more closely aligned with the requested functionality.
-
----
-
-# 11. SCENARIO 6 – PROJECT RECOMMENDATION
-
-### Naïve Prompt
-
-> Suggest some project ideas.
-
-### Basic Prompt
-
-> Suggest five mini-project ideas for an Electronics and Communication Engineering student. Focus on Arduino, sensors, IoT, and embedded systems. For each project, provide the objective, major components, and expected outcome.
-
-### Response Comparison
-
-| Parameter       | Naïve Prompt | Basic Prompt |
-| --------------- | ------------ | ------------ |
-| Relevance       | Low          | Very High    |
-| Specificity     | Low          | High         |
-| Practical Value | Moderate     | Very High    |
-| Depth           | Low          | High         |
-
-### Observation
-
-The basic prompt provides project ideas that are more relevant to the specified engineering domain and includes useful implementation information.
-
----
-
-# 12. SCENARIO 7 – PROFESSIONAL EMAIL WRITING
-
-### Naïve Prompt
-
-> Write an email asking for leave.
-
-### Basic Prompt
-
-> Write a professional email to a college faculty member requesting two days of leave due to a personal reason. Keep it polite and concise and include the leave dates and a request for approval.
-
-### Response Comparison
-
-| Parameter    | Naïve Prompt | Basic Prompt |
-| ------------ | ------------ | ------------ |
-| Tone         | General      | Professional |
-| Completeness | Moderate     | High         |
-| Relevance    | Moderate     | High         |
-| Clarity      | Good         | Very Good    |
-
-### Observation
-
-The basic prompt produces a more appropriate email because it specifies the recipient, purpose, duration, tone, and required information.
-
----
-
-# 13. SCENARIO 8 – ENGINEERING PROBLEM SOLVING
-
-### Naïve Prompt
-
-> How can traffic congestion be reduced?
-
-### Basic Prompt
-
-> Suggest technological solutions for reducing traffic congestion in a large city. Include three AI or IoT-based solutions, explain how each works, and mention one advantage and one limitation for each solution.
-
-### Response Comparison
-
-| Parameter        | Naïve Prompt | Basic Prompt |
-| ---------------- | ------------ | ------------ |
-| Technical Detail | Low          | High         |
-| Relevance        | Moderate     | High         |
-| Depth            | Moderate     | High         |
-| Practicality     | Moderate     | Very High    |
-
-### Observation
-
-The basic prompt produces more detailed and practical solutions because it specifies the technology, number of solutions, explanation requirements, advantages, and limitations.
-
----
-
-# 14. OVERALL COMPARATIVE TABLE
-
-| S.No | Test Scenario          | Naïve Prompt Result | Basic Prompt Result          | Better Result |
-| ---: | ---------------------- | ------------------- | ---------------------------- | ------------- |
-|    1 | Creative Story         | General story       | Focused and structured story | Basic         |
-|    2 | Factual Explanation    | General explanation | Detailed explanation         | Basic         |
-|    3 | Summarization          | Broad summary       | Controlled summary           | Basic         |
-|    4 | Study Advice           | General suggestions | Actionable study plan        | Basic         |
-|    5 | Python Programming     | Simple program      | Requirement-based program    | Basic         |
-|    6 | Project Recommendation | Generic ideas       | Domain-specific ideas        | Basic         |
-|    7 | Email Writing          | Basic email         | Professional email           | Basic         |
-|    8 | Problem Solving        | General solutions   | Detailed technical solutions | Basic         |
-
----
-
-# 15. EVALUATION PARAMETERS
-
-The generated responses were evaluated using four major parameters.
-
-| Evaluation Parameter | Description                                                    |
-| -------------------- | -------------------------------------------------------------- |
-| **Quality**          | Clarity, organization, coherence, and overall response quality |
-| **Accuracy**         | Correctness of the information provided                        |
-| **Relevance**        | How closely the response follows the requested task            |
-| **Depth**            | Amount of useful explanation, detail, and insight              |
-
----
-
-# 16. EVALUATION SUMMARY
-
-| Parameter            | Naïve Prompting | Basic Prompting |
-| -------------------- | --------------- | --------------- |
-| Quality              | Moderate        | High            |
-| Accuracy             | Moderate        | High            |
-| Relevance            | Moderate        | Very High       |
-| Depth                | Low to Moderate | High            |
-| Output Control       | Low             | High            |
-| Practical Usefulness | Moderate        | High            |
-
----
-
-# 17. ANALYSIS OF RESULTS
-
-The comparison shows that the structure of a prompt has a noticeable effect on the response generated by ChatGPT.
-
-Naïve prompts generally produce broad responses because they do not provide enough information about the user's exact requirements. The AI has to determine the expected format, level of detail, and scope on its own.
-
-Basic prompts generally produce more relevant and organized responses because they provide specific instructions, context, constraints, and expected output formats.
-
-The improvement is particularly noticeable in **programming, technical problem solving, recommendations, and academic tasks**, where specific requirements are important.
-
----
-
-## 18. EFFECT OF PROMPT CLARITY
+## 3. PROMPTING PATTERN WORKFLOW
 
 ```mermaid
 flowchart TD
-    A[Clear Prompt] --> B[Better Understanding of User Intent]
-    B --> C[More Relevant Response]
-    C --> D[Higher Quality]
-    D --> E[Greater Depth and Usefulness]
+    A[Engineering Task] --> B[Zero-Shot Prompt]
+    A --> C[Few-Shot Prompt]
+    A --> D[Role-Based Prompt]
+    A --> E[Step-by-Step Prompt]
+
+    B --> F[Generated Response]
+    C --> G[Generated Response]
+    D --> H[Generated Response]
+    E --> I[Generated Response]
+
+    F --> J[Compare Responses]
+    G --> J
+    H --> J
+    I --> J
+
+    J --> K[Quality]
+    J --> L[Accuracy]
+    J --> M[Relevance]
+    J --> N[Depth]
 ```
 
 ---
 
-# 19. DOES BASIC PROMPTING ALWAYS PRODUCE BETTER RESULTS?
+## 4. TEST SCENARIO 1 – SMART PARKING SYSTEM
 
-Basic prompting does not necessarily produce a better response in every situation.
+### Task
 
-For simple questions and open-ended creative tasks, naïve prompts can sometimes produce satisfactory results.
+Design a system that identifies available parking spaces and guides vehicles to empty slots.
 
-For example:
+### Zero-Shot Prompt
 
-> Give me some names for a robot.
+> Design a smart parking system.
 
-This is a simple task where additional instructions may not be necessary.
+### Few-Shot Prompt
 
-However, when a task requires **specific information, formatting, constraints, technical details, or a particular audience**, a basic prompt is generally more effective.
+> Example: Sensor detects vehicle → Slot occupied.
+> Example: Sensor detects no vehicle → Slot available.
+> Design a smart parking system using similar logic.
 
-Therefore, the best prompting method depends on the complexity and requirements of the task.
+### Role-Based Prompt
 
----
+> Act as an IoT engineer and design a smart parking system using sensors, a microcontroller, and a display unit.
 
-# 20. ADVANTAGES OF NAÏVE PROMPTING
+### Step-by-Step Prompt
 
-* Easy and quick to write.
-* Requires minimal planning.
-* Useful for brainstorming.
-* Suitable for simple questions.
-* Can encourage open-ended creative responses.
+> Explain step by step how to design a smart parking system, including sensing, processing, decision-making, slot identification, and user notification.
 
----
+### Observation
 
-# 21. ADVANTAGES OF BASIC PROMPTING
-
-* Provides better control over the response.
-* Improves relevance.
-* Helps organize the generated information.
-* Provides greater depth.
-* Allows specific output formats.
-* Useful for technical and academic tasks.
-* Helps communicate the user's requirements clearly.
+The zero-shot prompt gives a general solution. Few-shot prompting improves consistency by providing examples. Role-based prompting gives a more domain-specific solution, while step-by-step prompting provides a more organized design process.
 
 ---
 
-# 22. LIMITATIONS OF NAÏVE PROMPTING
+## 5. TEST SCENARIO 2 – TEMPERATURE MONITORING
 
-Naïve prompting can produce:
+### Task
 
-* Generic responses
-* Unclear structure
-* Insufficient detail
-* Unwanted information
-* Less personalized results
-* Incomplete coverage of requirements
+Develop a system that monitors temperature and activates a cooling mechanism when the temperature exceeds a threshold.
 
----
+### Zero-Shot Prompt
 
-# 23. GUIDELINES FOR WRITING EFFECTIVE BASIC PROMPTS
+> Create a temperature monitoring system.
 
-An effective basic prompt can include the following elements:
+### Few-Shot Prompt
 
-```text
-CONTEXT
-   ↓
-TASK
-   ↓
-REQUIREMENTS
-   ↓
-CONSTRAINTS
-   ↓
-OUTPUT FORMAT
-```
+> Example: 25°C → Fan OFF.
+> Example: 40°C → Fan ON.
+> Create a similar temperature control system.
 
-### Example
+### Role-Based Prompt
 
-Instead of:
+> Act as an embedded systems engineer and develop a temperature monitoring system using a temperature sensor and microcontroller.
 
-> Explain IoT.
+### Step-by-Step Prompt
 
-A refined prompt can be:
+> Explain step by step how to sense temperature, compare it with a threshold value, and control a cooling fan.
 
-> Explain IoT to a first-year engineering student. Define IoT, explain its basic architecture, provide three applications, and present the answer using headings and bullet points.
+### Observation
 
-The refined version gives the AI a clear target and reduces ambiguity.
+Few-shot prompting is useful for defining input-output behavior, while role-based and step-by-step prompting provide more technical and structured responses.
 
 ---
 
-# 24. KEY FINDINGS
+## 6. TEST SCENARIO 3 – STUDENT PERFORMANCE CLASSIFICATION
 
-1. Naïve prompts are simple and require less effort.
-2. Basic prompts generally provide more relevant responses.
-3. Providing context improves the AI's understanding of the task.
-4. Specific instructions improve the quality of the generated output.
-5. Defining the expected format improves organization.
-6. Adding constraints helps control the response.
-7. Basic prompting is particularly useful for technical and academic tasks.
-8. Naïve prompts can still be effective for simple and creative tasks.
-9. The ideal prompt depends on the complexity of the task.
-10. Effective prompt engineering focuses on **clarity rather than unnecessary length**.
+### Task
 
----
+Classify student performance based on examination marks.
 
-# 25. SUMMARY
+### Zero-Shot Prompt
 
-The experiment compared naïve and basic prompting techniques using eight different scenarios. Each scenario was tested using two prompts that targeted the same task but differed in their level of structure and detail.
+> Analyze student performance based on marks.
 
-The results showed that basic prompts generally generated responses with better **quality, accuracy, relevance, depth, and usefulness**. Naïve prompts were effective for simple and open-ended tasks but provided less control over the final output.
+### Few-Shot Prompt
 
-The experiment demonstrates that providing appropriate context, clear instructions, requirements, constraints, and output formats can improve interaction with ChatGPT.
+> Example: 90 marks → Excellent.
+> Example: 70 marks → Good.
+> Example: 50 marks → Average.
+> Classify students using the same pattern.
 
----
+### Role-Based Prompt
 
-# 26. CONCLUSION
+> Act as an academic performance analyst and classify students according to their examination marks.
 
-The comparative study successfully demonstrated the effect of prompt structure on AI-generated responses. Naïve prompts are suitable when the task is simple or when the user wants an open-ended response. Basic prompts are more suitable when specific, detailed, accurate, and structured information is required.
+### Step-by-Step Prompt
 
-Thus, effective prompt engineering does not mean creating unnecessarily long prompts. Instead, it involves providing **clear context, precise instructions, relevant constraints, and an appropriate output format** according to the task.
+> Analyze student marks step by step, define suitable performance ranges, and classify each student according to the calculated range.
+
+### Observation
+
+Few-shot prompting provides clear classification behavior, while step-by-step prompting makes the classification process easier to understand.
 
 ---
 
-# RESULT
+## 7. TEST SCENARIO 4 – PYTHON PROGRAM GENERATION
 
-**The comparative analysis of naïve and basic prompting was successfully performed using multiple test scenarios. The results demonstrated that basic prompts generally produced more relevant, organized, detailed, and useful responses, while naïve prompts were sufficient for simple and open-ended tasks.**
+### Task
 
+Generate a Python program to determine whether a number is prime.
+
+### Zero-Shot Prompt
+
+> Write Python code to check whether a number is prime.
+
+### Few-Shot Prompt
+
+> Example: 7 → Prime
+> Example: 10 → Not Prime
+> Write a Python program that follows this behavior.
+
+### Role-Based Prompt
+
+> Act as a Python programming instructor and write a simple prime-number checking program for beginners.
+
+### Step-by-Step Prompt
+
+> Develop a Python program to check whether a number is prime. Explain the algorithm, conditions, and program execution step by step.
+
+### Observation
+
+Role-based prompting improves the teaching aspect of the response, while step-by-step prompting provides a clearer understanding of the programming logic.
+
+---
+
+## 8. TEST SCENARIO 5 – TRAFFIC MANAGEMENT
+
+### Task
+
+Develop an intelligent system for reducing traffic congestion.
+
+### Zero-Shot Prompt
+
+> How can traffic congestion be reduced using AI?
+
+### Few-Shot Prompt
+
+> Example: Traffic camera data → Detect vehicle density.
+> Example: High vehicle density → Increase green-light duration.
+> Suggest an AI-based traffic management system using similar logic.
+
+### Role-Based Prompt
+
+> Act as an AI and IoT engineer and design an intelligent traffic management system using cameras, sensors, and real-time data analysis.
+
+### Step-by-Step Prompt
+
+> Explain step by step how an AI-based traffic management system can detect congestion, analyze traffic density, make decisions, and control traffic signals.
+
+### Observation
+
+Role-based prompting provides a professional engineering perspective, while step-by-step prompting produces a more complete system workflow.
+
+---
+
+## 9. COMPARATIVE ANALYSIS
+
+| Prompting Pattern | Clarity   | Detail    | Consistency | Technical Depth | Best Application      |
+| ----------------- | --------- | --------- | ----------- | --------------- | --------------------- |
+| Zero-Shot         | Medium    | Medium    | Medium      | Medium          | Simple tasks          |
+| Few-Shot          | High      | High      | Very High   | High            | Classification        |
+| Role-Based        | High      | High      | High        | Very High       | Domain-specific tasks |
+| Step-by-Step      | Very High | Very High | High        | Very High       | Complex problems      |
+
+---
+
+## 10. RESPONSE EVALUATION
+
+The generated responses are evaluated using the following criteria:
+
+### Quality
+
+Measures the clarity, organization, completeness, and usefulness of the response.
+
+### Accuracy
+
+Measures whether the information or solution provided by the AI is technically and factually correct.
+
+### Relevance
+
+Measures how closely the generated response follows the given prompt.
+
+### Depth
+
+Measures the amount of explanation, reasoning, and useful technical detail provided.
+
+### Consistency
+
+Measures whether the AI produces similar-quality responses when given similar inputs.
+
+---
+
+## 11. OVERALL RESULTS
+
+| Scenario               | Zero-Shot | Few-Shot  | Role-Based | Step-by-Step | Best Pattern              |
+| ---------------------- | --------- | --------- | ---------- | ------------ | ------------------------- |
+| Smart Parking          | Good      | Very Good | Excellent  | Excellent    | Role-Based / Step-by-Step |
+| Temperature Monitoring | Good      | Excellent | Excellent  | Excellent    | Few-Shot / Step-by-Step   |
+| Student Classification | Good      | Excellent | Very Good  | Excellent    | Few-Shot                  |
+| Python Programming     | Good      | Very Good | Excellent  | Excellent    | Role-Based / Step-by-Step |
+| Traffic Management     | Good      | Very Good | Excellent  | Excellent    | Step-by-Step              |
+
+---
+
+## 12. OBSERVATIONS
+
+The experiment produced the following observations:
+
+1. Zero-shot prompting is simple and effective for straightforward tasks.
+2. Few-shot prompting improves consistency by providing examples.
+3. Role-based prompting helps the AI generate domain-specific responses.
+4. Step-by-step prompting is useful for complex engineering problems.
+5. Different prompting patterns produce different levels of detail.
+6. The best prompting pattern depends on the nature of the task.
+7. Combining multiple prompting techniques can produce highly structured outputs.
+
+---
+
+## 13. APPLICATIONS
+
+Different prompting patterns can be used in:
+
+* Embedded system design
+* Software development
+* IoT applications
+* Data analysis
+* Academic learning
+* Engineering problem solving
+* Technical documentation
+* Debugging
+* Classification systems
+* Project planning
+
+---
+
+## 14. ADVANTAGES
+
+* Improves interaction with Generative AI.
+* Helps obtain task-specific responses.
+* Reduces ambiguity in complex problems.
+* Improves response organization.
+* Supports technical and academic learning.
+* Makes AI tools more useful for engineering applications.
+
+---
+
+## 15. LIMITATIONS
+
+* AI responses may still contain incorrect information.
+* Few-shot prompting requires suitable examples.
+* Step-by-step prompts can produce unnecessarily long responses.
+* Role-based prompting does not guarantee expert-level accuracy.
+* The quality of the output depends on the quality of the input prompt.
+
+---
+
+## 16. KEY FINDINGS
+
+The experiment demonstrates that there is no single prompting pattern that is best for every situation.
+
+* **Zero-shot prompting** is suitable for simple tasks.
+* **Few-shot prompting** is useful when examples or patterns are important.
+* **Role-based prompting** works well for professional and domain-specific tasks.
+* **Step-by-step prompting** is effective for complex problem-solving tasks.
+
+Therefore, selecting the appropriate prompting pattern according to the task can improve the quality and usefulness of AI-generated responses.
+
+---
+
+## 17. CONCLUSION
+
+The comparative study of different prompting patterns was successfully carried out using multiple test scenarios. The experiment demonstrated that changing the prompting pattern can significantly influence the structure, relevance, consistency, and depth of AI-generated responses.
+
+Zero-shot prompting provides quick general responses, few-shot prompting improves pattern-based outputs, role-based prompting provides domain-oriented responses, and step-by-step prompting is useful for complex problem solving.
+
+Hence, effective prompt engineering requires selecting the **appropriate prompting pattern based on the task, context, and expected output**.
+
+---
+
+## RESULT
+
+**The different prompting patterns were successfully tested and compared across various test scenarios. The experiment demonstrated that selecting a suitable prompting pattern improves the quality, relevance, consistency, and depth of AI-generated responses.**
