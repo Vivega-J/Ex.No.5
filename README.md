@@ -2,383 +2,717 @@
 
 # EXPERIMENT 5
 
-## COMPARATIVE ANALYSIS OF DIFFERENT TYPES OF PROMPTING PATTERNS AND EXPLANATION WITH VARIOUS TEST SCENARIOS
+# AI-BASED SMART TRAFFIC SYSTEM USING DIFFERENT PROMPTING PATTERNS
 
-### AIM
+---
 
-To study, test, and compare different prompting patterns using various test scenarios and analyze their effect on the **quality, accuracy, relevance, consistency, and depth** of AI-generated responses.
+## AIM
 
-### AI TOOLS REQUIRED
+To design an **AI-based Smart Traffic System** using different prompting patterns and compare how various prompts help generate the problem analysis, system design, algorithm, Python program, testing procedure, and documentation.
+
+---
+
+## AI TOOLS REQUIRED
 
 * ChatGPT
-* Google Gemini
-* Any Generative AI Tool
+* Python
+* GitHub
 
 ---
 
-## 1. INTRODUCTION
+## OBJECTIVE
 
-Prompting is the process of providing instructions to a Generative AI model to obtain a desired output. Different prompting patterns can influence how an AI model understands a task and generates its response.
+To apply different prompting patterns to the same engineering problem and study how the generated outputs differ.
 
-In this experiment, different prompting patterns are applied to multiple scenarios. The responses are compared to identify which prompting pattern is more effective for a particular type of task.
+The following prompting patterns are used:
 
-The following prompting patterns are considered:
-
-1. **Zero-Shot Prompting**
-2. **Few-Shot Prompting**
-3. **Role-Based Prompting**
-4. **Step-by-Step Prompting**
+1. Zero-Shot Prompting
+2. Few-Shot Prompting
+3. Role-Based Prompting
+4. Step-by-Step Prompting
 
 ---
 
-## 2. TYPES OF PROMPTING PATTERNS
+# 1. PROBLEM STATEMENT
 
-### 2.1 Zero-Shot Prompting
+Traditional traffic signals operate using fixed timing. This can result in unnecessary waiting when one road has heavy traffic while another road has very few vehicles.
 
-Zero-shot prompting asks the AI to perform a task without providing examples.
+The objective is to design an **AI-based Smart Traffic System** that monitors vehicle density and dynamically adjusts traffic signal timing according to the traffic level.
 
-**Example:**
+The system should:
 
-> Explain how an automatic street-light system works.
+* Detect the number of vehicles.
+* Classify traffic density.
+* Assign suitable green-light duration.
+* Give more time to roads with heavier traffic.
+* Continuously monitor traffic conditions.
 
 ---
 
-### 2.2 Few-Shot Prompting
+# 2. PROMPTING PATTERN USED
 
-Few-shot prompting provides one or more examples before asking the AI to perform the required task.
+## Zero-Shot Prompt
 
-**Example:**
+> Design an AI-based smart traffic system that reduces traffic congestion.
 
-> Example:
-> Input: 20°C → Fan OFF
-> Input: 40°C → Fan ON
+### Generated Output
+
+The AI suggests a traffic management system that uses sensors or cameras to detect vehicle density and dynamically control traffic signals.
+
+---
+
+## Few-Shot Prompt
+
+> Consider the following examples:
 >
-> Determine the output when the temperature is 35°C.
+> Low traffic → 30 seconds green light
+> Medium traffic → 45 seconds green light
+> High traffic → 60 seconds green light
+>
+> Now design an AI-based smart traffic system that follows the same logic.
+
+### Generated Output
+
+The AI creates a system that measures traffic density and assigns green-light duration according to the three traffic levels.
 
 ---
 
-### 2.3 Role-Based Prompting
+## Role-Based Prompt
 
-Role-based prompting assigns a specific professional or expert role to the AI.
+> Act as an AI and IoT engineer. Design an AI-based smart traffic management system using traffic sensors, a controller, and dynamically controlled traffic signals. Explain the components and working of the system.
 
-**Example:**
+### Generated Output
 
-> Act as an embedded systems engineer and explain how an automatic street-light controller can be designed using a microcontroller.
-
----
-
-### 2.4 Step-by-Step Prompting
-
-Step-by-step prompting asks the AI to approach a problem through a sequence of logical stages.
-
-**Example:**
-
-> Explain the design of an automatic street-light system step by step, including input, processing, decision-making, and output.
+The AI provides an engineering-oriented solution containing sensors, a processing unit, traffic-density analysis, decision-making logic, and signal control.
 
 ---
 
-## 3. PROMPTING PATTERN WORKFLOW
+## Step-by-Step Prompt
+
+> Design an AI-based smart traffic system step by step. Explain how vehicle data is collected, how traffic density is calculated, how traffic is classified, how signal timing is selected, and how the traffic signal is controlled.
+
+### Generated Output
+
+The AI produces a structured workflow from vehicle detection to traffic-signal control.
+
+---
+
+# 3. SYSTEM ARCHITECTURE
+
+```mermaid
+flowchart LR
+    A[Traffic Cameras / Sensors] --> B[Vehicle Detection]
+    B --> C[Vehicle Count]
+    C --> D[Traffic Density Analysis]
+    D --> E[AI Decision Module]
+    E --> F[Signal Timing Controller]
+    F --> G[Traffic Lights]
+    G --> H[Continuous Monitoring]
+    H --> A
+```
+<img width="1536" height="1024" alt="ChatGPT Image Aug 8, 2026, 09_40_46 AM" src="https://github.com/user-attachments/assets/3d7293c3-9dec-4479-874f-b9eb53eec571" />
+
+
+### System Components
+
+| Component             | Function                                |
+| --------------------- | --------------------------------------- |
+| Traffic Sensor/Camera | Detects vehicles                        |
+| Vehicle Counter       | Counts vehicles                         |
+| AI Decision Module    | Analyzes traffic density                |
+| Controller            | Determines signal timing                |
+| Traffic Signal        | Controls vehicle movement               |
+| Monitoring System     | Continuously updates traffic conditions |
+
+---
+
+# 4. WORKING PRINCIPLE
+
+The smart traffic system works through the following stages:
+
+### Step 1 – Vehicle Detection
+
+Sensors or cameras detect vehicles approaching the traffic junction.
+
+### Step 2 – Vehicle Counting
+
+The system calculates the number of vehicles on each road.
+
+### Step 3 – Traffic Classification
+
+The traffic is classified into:
+
+* Low Traffic
+* Medium Traffic
+* High Traffic
+
+### Step 4 – Decision Making
+
+The system selects an appropriate green-light duration.
+
+### Step 5 – Signal Control
+
+The traffic signal is controlled according to the calculated timing.
+
+### Step 6 – Continuous Monitoring
+
+The system continuously receives new traffic information and updates the signal timing.
+
+---
+
+# 5. TRAFFIC CLASSIFICATION
+
+| Vehicle Count | Traffic Level | Green-Light Duration |
+| ------------: | ------------- | -------------------: |
+|        0 – 30 | Low           |           30 seconds |
+|       31 – 50 | Medium        |           45 seconds |
+|      Above 50 | High          |           60 seconds |
+
+---
+
+# 6. FLOWCHART
 
 ```mermaid
 flowchart TD
-    A[Engineering Task] --> B[Zero-Shot Prompt]
-    A --> C[Few-Shot Prompt]
-    A --> D[Role-Based Prompt]
-    A --> E[Step-by-Step Prompt]
+    A[Start] --> B[Read Vehicle Count]
+    B --> C{Vehicle Count > 50?}
 
-    B --> F[Generated Response]
-    C --> G[Generated Response]
-    D --> H[Generated Response]
-    E --> I[Generated Response]
+    C -->|Yes| D[High Traffic]
+    D --> E[Green Light = 60 sec]
 
-    F --> J[Compare Responses]
-    G --> J
-    H --> J
-    I --> J
+    C -->|No| F{Vehicle Count > 30?}
 
-    J --> K[Quality]
-    J --> L[Accuracy]
-    J --> M[Relevance]
-    J --> N[Depth]
+    F -->|Yes| G[Medium Traffic]
+    G --> H[Green Light = 45 sec]
+
+    F -->|No| I[Low Traffic]
+    I --> J[Green Light = 30 sec]
+
+    E --> K[Display Signal Timing]
+    H --> K
+    J --> K
+
+    K --> L[Monitor Traffic Again]
+    L --> B
 ```
 
 ---
 
-## 4. TEST SCENARIO 1 – SMART PARKING SYSTEM
+# 7. ALGORITHM
 
-### Task
-
-Design a system that identifies available parking spaces and guides vehicles to empty slots.
-
-### Zero-Shot Prompt
-
-> Design a smart parking system.
-
-### Few-Shot Prompt
-
-> Example: Sensor detects vehicle → Slot occupied.
-> Example: Sensor detects no vehicle → Slot available.
-> Design a smart parking system using similar logic.
-
-### Role-Based Prompt
-
-> Act as an IoT engineer and design a smart parking system using sensors, a microcontroller, and a display unit.
-
-### Step-by-Step Prompt
-
-> Explain step by step how to design a smart parking system, including sensing, processing, decision-making, slot identification, and user notification.
-
-### Observation
-
-The zero-shot prompt gives a general solution. Few-shot prompting improves consistency by providing examples. Role-based prompting gives a more domain-specific solution, while step-by-step prompting provides a more organized design process.
+1. Start the program.
+2. Read the number of vehicles on each road.
+3. Compare the vehicle count with predefined thresholds.
+4. If the vehicle count is greater than 50, classify it as high traffic.
+5. Assign 60 seconds of green-light duration.
+6. If the vehicle count is between 31 and 50, classify it as medium traffic.
+7. Assign 45 seconds of green-light duration.
+8. Otherwise, classify it as low traffic.
+9. Assign 30 seconds of green-light duration.
+10. Display the traffic level and signal timing.
+11. Repeat the process for continuous monitoring.
+12. Stop.
 
 ---
 
-## 5. TEST SCENARIO 2 – TEMPERATURE MONITORING
+# 8. PYTHON PROGRAM
 
-### Task
+```python
+roads = ["Road A", "Road B", "Road C", "Road D"]
 
-Develop a system that monitors temperature and activates a cooling mechanism when the temperature exceeds a threshold.
+for road in roads:
 
-### Zero-Shot Prompt
+    vehicles = int(input("Enter number of vehicles on " + road + ": "))
 
-> Create a temperature monitoring system.
+    if vehicles > 50:
+        traffic_level = "High Traffic"
+        green_time = 60
 
-### Few-Shot Prompt
+    elif vehicles > 30:
+        traffic_level = "Medium Traffic"
+        green_time = 45
 
-> Example: 25°C → Fan OFF.
-> Example: 40°C → Fan ON.
-> Create a similar temperature control system.
+    else:
+        traffic_level = "Low Traffic"
+        green_time = 30
 
-### Role-Based Prompt
-
-> Act as an embedded systems engineer and develop a temperature monitoring system using a temperature sensor and microcontroller.
-
-### Step-by-Step Prompt
-
-> Explain step by step how to sense temperature, compare it with a threshold value, and control a cooling fan.
-
-### Observation
-
-Few-shot prompting is useful for defining input-output behavior, while role-based and step-by-step prompting provide more technical and structured responses.
+    print("Traffic Level:", traffic_level)
+    print("Green Light Duration:", green_time, "seconds")
+    print()
+```
 
 ---
 
-## 6. TEST SCENARIO 3 – STUDENT PERFORMANCE CLASSIFICATION
+# 9. PROGRAM EXECUTION
 
-### Task
+## Sample Input
 
-Classify student performance based on examination marks.
+```text
+Enter number of vehicles on Road A: 20
+Enter number of vehicles on Road B: 65
+Enter number of vehicles on Road C: 42
+Enter number of vehicles on Road D: 15
+```
 
-### Zero-Shot Prompt
+## Sample Output
 
-> Analyze student performance based on marks.
+```text
+Traffic Level: Low Traffic
+Green Light Duration: 30 seconds
 
-### Few-Shot Prompt
+Traffic Level: High Traffic
+Green Light Duration: 60 seconds
 
-> Example: 90 marks → Excellent.
-> Example: 70 marks → Good.
-> Example: 50 marks → Average.
-> Classify students using the same pattern.
+Traffic Level: Medium Traffic
+Green Light Duration: 45 seconds
 
-### Role-Based Prompt
-
-> Act as an academic performance analyst and classify students according to their examination marks.
-
-### Step-by-Step Prompt
-
-> Analyze student marks step by step, define suitable performance ranges, and classify each student according to the calculated range.
-
-### Observation
-
-Few-shot prompting provides clear classification behavior, while step-by-step prompting makes the classification process easier to understand.
+Traffic Level: Low Traffic
+Green Light Duration: 30 seconds
+```
 
 ---
 
-## 7. TEST SCENARIO 4 – PYTHON PROGRAM GENERATION
+# 10. OUTPUT ANALYSIS
 
-### Task
+### Road A
 
-Generate a Python program to determine whether a number is prime.
+```text
+Vehicle Count = 20
+```
 
-### Zero-Shot Prompt
+Since:
 
-> Write Python code to check whether a number is prime.
+```text
+20 <= 30
+```
 
-### Few-Shot Prompt
+The traffic is classified as:
 
-> Example: 7 → Prime
-> Example: 10 → Not Prime
-> Write a Python program that follows this behavior.
+```text
+Low Traffic
+```
 
-### Role-Based Prompt
+Therefore:
 
-> Act as a Python programming instructor and write a simple prime-number checking program for beginners.
-
-### Step-by-Step Prompt
-
-> Develop a Python program to check whether a number is prime. Explain the algorithm, conditions, and program execution step by step.
-
-### Observation
-
-Role-based prompting improves the teaching aspect of the response, while step-by-step prompting provides a clearer understanding of the programming logic.
+```text
+Green Light = 30 seconds
+```
 
 ---
 
-## 8. TEST SCENARIO 5 – TRAFFIC MANAGEMENT
+### Road B
 
-### Task
+```text
+Vehicle Count = 65
+```
 
-Develop an intelligent system for reducing traffic congestion.
+Since:
 
-### Zero-Shot Prompt
+```text
+65 > 50
+```
 
-> How can traffic congestion be reduced using AI?
+The traffic is classified as:
 
-### Few-Shot Prompt
+```text
+High Traffic
+```
 
-> Example: Traffic camera data → Detect vehicle density.
-> Example: High vehicle density → Increase green-light duration.
-> Suggest an AI-based traffic management system using similar logic.
+Therefore:
 
-### Role-Based Prompt
-
-> Act as an AI and IoT engineer and design an intelligent traffic management system using cameras, sensors, and real-time data analysis.
-
-### Step-by-Step Prompt
-
-> Explain step by step how an AI-based traffic management system can detect congestion, analyze traffic density, make decisions, and control traffic signals.
-
-### Observation
-
-Role-based prompting provides a professional engineering perspective, while step-by-step prompting produces a more complete system workflow.
+```text
+Green Light = 60 seconds
+```
 
 ---
 
-## 9. COMPARATIVE ANALYSIS
+### Road C
 
-| Prompting Pattern | Clarity   | Detail    | Consistency | Technical Depth | Best Application      |
-| ----------------- | --------- | --------- | ----------- | --------------- | --------------------- |
-| Zero-Shot         | Medium    | Medium    | Medium      | Medium          | Simple tasks          |
-| Few-Shot          | High      | High      | Very High   | High            | Classification        |
-| Role-Based        | High      | High      | High        | Very High       | Domain-specific tasks |
-| Step-by-Step      | Very High | Very High | High        | Very High       | Complex problems      |
+```text
+Vehicle Count = 42
+```
 
----
+Since:
 
-## 10. RESPONSE EVALUATION
+```text
+30 < 42 <= 50
+```
 
-The generated responses are evaluated using the following criteria:
+The traffic is classified as:
 
-### Quality
+```text
+Medium Traffic
+```
 
-Measures the clarity, organization, completeness, and usefulness of the response.
+Therefore:
 
-### Accuracy
-
-Measures whether the information or solution provided by the AI is technically and factually correct.
-
-### Relevance
-
-Measures how closely the generated response follows the given prompt.
-
-### Depth
-
-Measures the amount of explanation, reasoning, and useful technical detail provided.
-
-### Consistency
-
-Measures whether the AI produces similar-quality responses when given similar inputs.
+```text
+Green Light = 45 seconds
+```
 
 ---
 
-## 11. OVERALL RESULTS
+### Road D
 
-| Scenario               | Zero-Shot | Few-Shot  | Role-Based | Step-by-Step | Best Pattern              |
-| ---------------------- | --------- | --------- | ---------- | ------------ | ------------------------- |
-| Smart Parking          | Good      | Very Good | Excellent  | Excellent    | Role-Based / Step-by-Step |
-| Temperature Monitoring | Good      | Excellent | Excellent  | Excellent    | Few-Shot / Step-by-Step   |
-| Student Classification | Good      | Excellent | Very Good  | Excellent    | Few-Shot                  |
-| Python Programming     | Good      | Very Good | Excellent  | Excellent    | Role-Based / Step-by-Step |
-| Traffic Management     | Good      | Very Good | Excellent  | Excellent    | Step-by-Step              |
+```text
+Vehicle Count = 15
+```
 
----
+Since:
 
-## 12. OBSERVATIONS
+```text
+15 <= 30
+```
 
-The experiment produced the following observations:
+The traffic is classified as:
 
-1. Zero-shot prompting is simple and effective for straightforward tasks.
-2. Few-shot prompting improves consistency by providing examples.
-3. Role-based prompting helps the AI generate domain-specific responses.
-4. Step-by-step prompting is useful for complex engineering problems.
-5. Different prompting patterns produce different levels of detail.
-6. The best prompting pattern depends on the nature of the task.
-7. Combining multiple prompting techniques can produce highly structured outputs.
+```text
+Low Traffic
+```
 
----
+Therefore:
 
-## 13. APPLICATIONS
-
-Different prompting patterns can be used in:
-
-* Embedded system design
-* Software development
-* IoT applications
-* Data analysis
-* Academic learning
-* Engineering problem solving
-* Technical documentation
-* Debugging
-* Classification systems
-* Project planning
+```text
+Green Light = 30 seconds
+```
 
 ---
 
-## 14. ADVANTAGES
+# 11. TESTING
 
-* Improves interaction with Generative AI.
-* Helps obtain task-specific responses.
-* Reduces ambiguity in complex problems.
-* Improves response organization.
-* Supports technical and academic learning.
-* Makes AI tools more useful for engineering applications.
+The program was tested using different traffic conditions.
 
----
-
-## 15. LIMITATIONS
-
-* AI responses may still contain incorrect information.
-* Few-shot prompting requires suitable examples.
-* Step-by-step prompts can produce unnecessarily long responses.
-* Role-based prompting does not guarantee expert-level accuracy.
-* The quality of the output depends on the quality of the input prompt.
+| Test Case | Road A | Road B | Road C | Road D | Status |
+| --------- | -----: | -----: | -----: | -----: | ------ |
+| TC01      |     20 |     65 |     42 |     15 | PASS   |
+| TC02      |     55 |     25 |     35 |     10 | PASS   |
+| TC03      |     10 |     20 |     25 |     30 | PASS   |
+| TC04      |     70 |     60 |     55 |     45 | PASS   |
+| TC05      |     31 |     50 |     51 |     30 | PASS   |
 
 ---
 
-## 16. KEY FINDINGS
+# 12. TEST CASE ANALYSIS
 
-The experiment demonstrates that there is no single prompting pattern that is best for every situation.
+## Test Case 1
 
-* **Zero-shot prompting** is suitable for simple tasks.
-* **Few-shot prompting** is useful when examples or patterns are important.
-* **Role-based prompting** works well for professional and domain-specific tasks.
-* **Step-by-step prompting** is effective for complex problem-solving tasks.
+```text
+Road A = 20
+Road B = 65
+Road C = 42
+Road D = 15
+```
 
-Therefore, selecting the appropriate prompting pattern according to the task can improve the quality and usefulness of AI-generated responses.
+Expected classification:
+
+```text
+A → Low
+B → High
+C → Medium
+D → Low
+```
+
+**Result: PASS**
 
 ---
 
-## 17. CONCLUSION
+## Test Case 2
 
-The comparative study of different prompting patterns was successfully carried out using multiple test scenarios. The experiment demonstrated that changing the prompting pattern can significantly influence the structure, relevance, consistency, and depth of AI-generated responses.
+```text
+Road A = 55
+Road B = 25
+Road C = 35
+Road D = 10
+```
 
-Zero-shot prompting provides quick general responses, few-shot prompting improves pattern-based outputs, role-based prompting provides domain-oriented responses, and step-by-step prompting is useful for complex problem solving.
+Expected classification:
 
-Hence, effective prompt engineering requires selecting the **appropriate prompting pattern based on the task, context, and expected output**.
+```text
+A → High
+B → Low
+C → Medium
+D → Low
+```
+
+**Result: PASS**
 
 ---
 
-## RESULT
+## Test Case 3
 
-**The different prompting patterns were successfully tested and compared across various test scenarios. The experiment demonstrated that selecting a suitable prompting pattern improves the quality, relevance, consistency, and depth of AI-generated responses.**
+```text
+Road A = 10
+Road B = 20
+Road C = 25
+Road D = 30
+```
+
+Expected classification:
+
+```text
+A → Low
+B → Low
+C → Low
+D → Low
+```
+
+**Result: PASS**
+
+---
+
+## Test Case 4
+
+```text
+Road A = 70
+Road B = 60
+Road C = 55
+Road D = 45
+```
+
+Expected classification:
+
+```text
+A → High
+B → High
+C → High
+D → Medium
+```
+
+**Result: PASS**
+
+---
+
+## Test Case 5
+
+```text
+Road A = 31
+Road B = 50
+Road C = 51
+Road D = 30
+```
+
+Expected classification:
+
+```text
+A → Medium
+B → Medium
+C → High
+D → Low
+```
+
+**Result: PASS**
+
+---
+
+# 13. COMPARISON OF PROMPTING PATTERNS
+
+| Prompt Pattern | Output Characteristics   | Suitable For       |
+| -------------- | ------------------------ | ------------------ |
+| Zero-Shot      | General solution         | Simple problems    |
+| Few-Shot       | Pattern-based solution   | Classification     |
+| Role-Based     | Domain-specific solution | Engineering design |
+| Step-by-Step   | Structured solution      | Complex problems   |
+
+---
+
+# 14. COMPARATIVE ANALYSIS
+
+### Zero-Shot Prompting
+
+Provides a quick and general solution without requiring examples.
+
+**Advantage:** Simple and fast.
+
+**Limitation:** May not provide enough technical detail.
+
+---
+
+### Few-Shot Prompting
+
+Uses examples to guide the AI toward the expected behavior.
+
+**Advantage:** Produces consistent pattern-based results.
+
+**Limitation:** Requires suitable examples.
+
+---
+
+### Role-Based Prompting
+
+Makes the AI respond from the perspective of a particular professional.
+
+**Advantage:** Produces domain-oriented explanations.
+
+**Limitation:** Assigning a role does not guarantee technical correctness.
+
+---
+
+### Step-by-Step Prompting
+
+Breaks the problem into logical stages.
+
+**Advantage:** Useful for complex engineering problems.
+
+**Limitation:** The response can become longer than necessary.
+
+---
+
+# 15. OVERALL EVALUATION
+
+| Parameter   | Zero-Shot | Few-Shot | Role-Based | Step-by-Step |
+| ----------- | --------: | -------: | ---------: | -----------: |
+| Quality     |      7/10 |     8/10 |       9/10 |         9/10 |
+| Accuracy    |      7/10 |     8/10 |       9/10 |         9/10 |
+| Relevance   |      7/10 |     9/10 |       9/10 |         9/10 |
+| Depth       |      6/10 |     8/10 |       9/10 |        10/10 |
+| Ease of Use |     10/10 |     8/10 |       8/10 |         7/10 |
+
+---
+
+# 16. PROMPT CHAIN FOR THE SMART TRAFFIC SYSTEM
+
+The complete engineering problem can also be solved using prompt chaining.
+
+```mermaid
+flowchart TD
+    A[Problem Statement] --> B[Requirement Analysis]
+    B --> C[System Architecture]
+    C --> D[Algorithm]
+    D --> E[Flowchart]
+    E --> F[Python Program]
+    F --> G[Testing]
+    G --> H[Output Analysis]
+    H --> I[Documentation]
+```
+
+### Prompt Chain
+
+**Prompt 1 – Problem**
+
+> Identify the major problems caused by fixed-time traffic signals and define the objective of an AI-based smart traffic system.
+
+↓
+
+**Prompt 2 – Requirement Analysis**
+
+> Identify the hardware, software, inputs, outputs, and functional requirements needed for an AI-based smart traffic system.
+
+↓
+
+**Prompt 3 – Architecture**
+
+> Design the system architecture showing sensors, vehicle detection, AI decision module, controller, and traffic signals.
+
+↓
+
+**Prompt 4 – Algorithm**
+
+> Develop an algorithm that classifies traffic as low, medium, or high based on vehicle count and assigns appropriate signal timing.
+
+↓
+
+**Prompt 5 – Flowchart**
+
+> Create a flowchart for the smart traffic system showing vehicle detection, traffic classification, decision making, and signal control.
+
+↓
+
+**Prompt 6 – Python Code**
+
+> Write a Python simulation of the smart traffic system using vehicle count and dynamic green-light timing.
+
+↓
+
+**Prompt 7 – Testing**
+
+> Generate test cases for the Python traffic-control program using low, medium, and high traffic conditions.
+
+↓
+
+**Prompt 8 – Documentation**
+
+> Prepare technical documentation describing the objective, architecture, algorithm, program, testing, results, and conclusion.
+
+---
+
+# 17. FINAL SYSTEM WORKFLOW
+
+```mermaid
+flowchart LR
+    A[Vehicles] --> B[Camera / Sensor]
+    B --> C[Vehicle Count]
+    C --> D[AI Traffic Analysis]
+    D --> E{Traffic Level}
+    E -->|Low| F[30 sec]
+    E -->|Medium| G[45 sec]
+    E -->|High| H[60 sec]
+    F --> I[Traffic Signal]
+    G --> I
+    H --> I
+```
+
+---
+
+# 18. ADVANTAGES OF THE PROPOSED SYSTEM
+
+* Reduces unnecessary waiting time.
+* Dynamically adjusts traffic signal timing.
+* Gives more green-light time to roads with heavy traffic.
+* Can continuously monitor changing traffic conditions.
+* Can be extended using cameras and machine learning.
+* Can be integrated with IoT-based traffic monitoring systems.
+
+---
+
+# 19. LIMITATIONS
+
+* The Python program is a simulation and does not directly control real traffic lights.
+* Real implementation requires sensors or cameras.
+* Real-time AI traffic detection requires suitable hardware and software.
+* Incorrect sensor data can affect the decision.
+* Safety mechanisms are required before deployment in real traffic systems.
+
+---
+
+# 20. FUTURE ENHANCEMENT
+
+The system can be improved by:
+
+* Using real-time camera feeds.
+* Implementing computer vision for vehicle detection.
+* Using machine learning for traffic prediction.
+* Integrating IoT sensors.
+* Adding emergency vehicle detection.
+* Connecting the system to a cloud-based monitoring platform.
+* Using historical traffic data to predict congestion.
+
+---
+
+# 21. KEY FINDINGS
+
+1. Different prompting patterns produce different styles of AI-generated responses.
+2. Zero-shot prompting is suitable for simple tasks.
+3. Few-shot prompting is useful when examples are available.
+4. Role-based prompting is effective for domain-specific engineering problems.
+5. Step-by-step prompting is useful for complex system design.
+6. Prompt chaining can divide a large engineering problem into manageable stages.
+7. AI can assist in generating algorithms, flowcharts, programs, test cases, and documentation.
+8. AI-generated programs should always be tested before use.
+
+---
+
+# CONCLUSION
+
+The **AI-Based Smart Traffic System** was successfully designed using different prompting patterns and prompt chaining techniques.
+
+Zero-shot, few-shot, role-based, and step-by-step prompting were applied to the same engineering problem. The generated outputs were compared based on quality, accuracy, relevance, and depth.
+
+The Python simulation successfully classified traffic into **low, medium, and high traffic levels** and assigned appropriate green-light durations.
+
+The experiment demonstrates that **prompt engineering and prompt chaining can help students solve engineering problems systematically**, from problem identification and requirement analysis to programming, testing, and documentation.
+
+---
+
+# RESULT
+
+**The AI-Based Smart Traffic System was successfully designed and simulated using different prompting patterns. The Python program was executed successfully, and all test cases produced the expected results. The experiment demonstrated that suitable prompting patterns and prompt chaining can improve the quality and structure of AI-assisted engineering solutions.**
